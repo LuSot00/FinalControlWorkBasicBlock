@@ -20,7 +20,7 @@ string[] GetArray(int size)
     return array;
 }
 
-void PrintArray (string[] array)
+void PrintArray(string[] array)
 {
     Console.Write("[" + "\t");
     for (int i = 0; i < array.Length; i++)
@@ -30,7 +30,35 @@ void PrintArray (string[] array)
     Console.Write("]");
 }
 
-
+string[] Selection(string[] arr)
+{
+    string[] newArray = new string[0];
+    int newArrayLength = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        int length = arr[i].Length;
+        if (length <= 3)
+        {
+            if (i == arr.Length)
+            {
+                newArray = new string[newArrayLength];
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    length = arr[i].Length;
+                    if (length <= 3)
+                    {
+                        newArray[j] = arr[j];
+                    }
+                }
+            }
+            else
+            {
+                newArrayLength++;
+            }
+        }
+    }
+    return newArray;
+}
 
 
 string[] result = GetArray(arraySize);
