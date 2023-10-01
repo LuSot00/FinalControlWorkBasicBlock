@@ -6,3 +6,32 @@
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
 
+Console.WriteLine("Введите размер массива: ");
+int arraySize = Convert.ToInt32(Console.ReadLine());
+
+string[] GetArray(int size)
+{
+    string[] array = new string[size];
+    for (int i = 0; i < size; i++)
+    {
+        Console.WriteLine("Введите значение ячейки: ");
+        array[i] = Convert.ToString(Console.ReadLine());
+    }
+    return array;
+}
+
+void PrintArray (string[] array)
+{
+    Console.Write("[" + "\t");
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + "," + "\t");
+    }
+    Console.Write("]");
+}
+
+
+
+
+string[] result = GetArray(arraySize);
+PrintArray(result);
