@@ -42,12 +42,14 @@ string[] Selection(string[] arr)
             if (i == arr.Length)
             {
                 newArray = new string[newArrayLength];
+                int k = 0;
                 for (int j = 0; j < arr.Length; j++)
                 {
-                    length = arr[i].Length;
+                    length = arr[j].Length;
                     if (length <= 3)
                     {
-                        newArray[j] = arr[j];
+                        newArray[k] = arr[j];
+                        k++;
                     }
                 }
             }
@@ -63,3 +65,6 @@ string[] Selection(string[] arr)
 
 string[] result = GetArray(arraySize);
 PrintArray(result);
+Console.WriteLine();
+Console.WriteLine("Преобразованная матрица: ");
+PrintArray(Selection(result));
