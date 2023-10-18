@@ -30,41 +30,38 @@ void PrintArray(string[] array)
     Console.Write("]");
 }
 
-string[] Selection(string[] arr)
+int CountElements(string[] arr)
 {
-    string[] newArray = new string[0];
     int newArrayLength = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        int length = arr[i].Length;
-        if (length <= 3)
+        int wordLength = arr[i].Length;
+        if (wordLength <= 3)
         {
-            if (i == arr.Length)
-            {
-                newArray = new string[newArrayLength];
-                int k = 0;
-                for (int j = 0; j < arr.Length; j++)
-                {
-                    length = arr[j].Length;
-                    if (length <= 3)
-                    {
-                        newArray[k] = arr[j];
-                        k++;
-                    }
-                }
-            }
-            else
-            {
-                newArrayLength++;
-            }
+            newArrayLength++;
+        }
+    }
+    return newArrayLength;
+}
+
+string[] NewArray(string[] array, int size)
+{
+    string[] newArray = new string[size];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        int wordLength = array[i].Length;
+        if (wordLength <= 3)
+        {
+            newArray[j] = array[i];
+            j++;
         }
     }
     return newArray;
 }
 
-
 string[] result = GetArray(arraySize);
 PrintArray(result);
 Console.WriteLine();
 Console.WriteLine("Преобразованная матрица: ");
-PrintArray(Selection(result));
+PrintArray(NewArray(result, CountElements(result)));
